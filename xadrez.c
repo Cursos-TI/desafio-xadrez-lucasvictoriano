@@ -2,59 +2,59 @@
 
 int main() {
 
-    /* ================================
-       MOVIMENTO DA TORRE
-       Estrutura usada: FOR
-       Torre andando 5 casas para a direita
-       ================================ */
-    
-    int casasTorre = 5;
+    /* ===============================
+       Movimentos das peças anteriores
+       (exemplo do desafio básico)
+       =============================== */
+
     int i;
 
-    printf("Movimento da TORRE:\n");
-
-    for (i = 1; i <= casasTorre; i++) {
+    // Torre - movendo 3 casas para a direita
+    for (i = 0; i < 3; i++) {
         printf("Direita\n");
     }
 
     printf("\n");
 
-
-    /* ================================
-       MOVIMENTO DO BISPO
-       Estrutura usada: WHILE
-       Bispo andando 5 casas na diagonal
-       (Cima + Direita)
-       ================================ */
-
-    int casasBispo = 5;
-    int contadorBispo = 1;
-
-    printf("Movimento do BISPO:\n");
-
-    while (contadorBispo <= casasBispo) {
-        printf("Cima Direita\n");
-        contadorBispo++;
+    // Bispo - movendo 2 casas para cima e direita
+    for (i = 0; i < 2; i++) {
+        printf("Cima\n");
+        printf("Direita\n");
     }
 
     printf("\n");
 
+    // Rainha - movendo 2 casas para cima
+    for (i = 0; i < 2; i++) {
+        printf("Cima\n");
+    }
 
-    /* ================================
-       MOVIMENTO DA RAINHA
-       Estrutura usada: DO-WHILE
-       Rainha andando 8 casas para a esquerda
-       ================================ */
+    /* ===============================
+       Movimento do Cavalo
+       Duas casas para baixo
+       Uma casa para a esquerda
+       Usando loops aninhados
+       =============================== */
 
-    int casasRainha = 8;
-    int contadorRainha = 1;
+    printf("\n"); // separa o movimento do Cavalo dos anteriores
 
-    printf("Movimento da RAINHA:\n");
+    int casasBaixo = 2;
+    int casasEsquerda = 1;
+    int contador;
 
-    do {
-        printf("Esquerda\n");
-        contadorRainha++;
-    } while (contadorRainha <= casasRainha);
+    // Loop externo (for): controla o movimento principal
+    for (i = 0; i < casasBaixo; i++) {
+        printf("Baixo\n");
+
+        // Loop interno (while): executa após completar o movimento vertical
+        if (i == casasBaixo - 1) {
+            contador = 0;
+            while (contador < casasEsquerda) {
+                printf("Esquerda\n");
+                contador++;
+            }
+        }
+    }
 
     return 0;
 }
